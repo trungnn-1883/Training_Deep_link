@@ -72,6 +72,7 @@ val myParamValue = myUri.pathSegments[0]
 Navigation sẽ giúp khắc phục các vấn đề này 
 
 1.
+```
 
 <fragment
     android:id="@+id/pagesListFragment"
@@ -83,11 +84,13 @@ Navigation sẽ giúp khắc phục các vấn đề này
         app:destination="@id/pageFragment"/>
     <deepLink app:uri="myapp.com" />
 </fragment>
+```
 
 URI ko có scheme => Schema sẽ được coi là  **http** hay **https**
 
 2. 
 
+```
 <fragment
     android:id="@+id/pageFragment"
     android:name="com.ekalips.navigatortest.page.PageFragment"
@@ -106,6 +109,7 @@ URI ko có scheme => Schema sẽ được coi là  **http** hay **https**
         app:destination="@id/pageCommentsFragment"/>
     <deepLink app:uri="myapp.com/{title}/{detail}" />
 </fragment>
+```
 
 Các tham số được viết trong dấu {} và thẻ <argument>. Muốn nhận ta đơn giản chỉ cần gọi getArguments() rồi get ra thuộc tính là xong
 
