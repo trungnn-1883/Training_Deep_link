@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools" android:id="@+id/nav_graph"
+            app:startDestination="@id/nav_first_fragment">
+
+    <fragment android:id="@+id/nav_first_fragment"
+              android:name="gooner.demo.training_deep_link.test_fragment.FirstFragment"
+              android:label="FirstFragment">
+        <action
+                android:id="@+id/action_nav_first_fragment_to_nav_second_fragment"
+                app:destination="@id/nav_second_fragment"/>
+
+        <argument android:name="title" app:argType="string" android:defaultValue="1"/>
+
+        <deepLink app:uri="deeplink.com/{title}"/>
+
+    </fragment>
+
+    <fragment android:id="@+id/nav_second_fragment"
+              android:name="gooner.demo.training_deep_link.test_fragment.SecondFragment"
+              android:label="SecondFragment">
+        <action android:id="@+id/action_nav_second_fragment_to_nav_third_fragment"
+                app:destination="@id/nav_third_fragment"/>
+    </fragment>
+
+    <fragment android:id="@+id/nav_third_fragment"
+              android:name="gooner.demo.training_deep_link.test_fragment.ThirdFragment"
+              android:label="ThirdFragment"/>
+
+</navigation>

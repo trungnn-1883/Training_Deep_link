@@ -44,6 +44,73 @@ Code để lấy, trong onCreate hoặc onStart
         }
 ```
 
+### 4. Deeplink với Navigation Component
+
+Một số vấn đề khi sử dụng deeplink như sau:
+
+### 1. Phải tạo nhiều link ở file manifest, bao gồm cả http và https
+
+### 2. Xử lý parameters trong link
+
+Case 1
+
+```
+val myUri = Uri.parse(myLink) // http://mysite.com?myParam=VALUE
+val myParamValue = myUri.getQueryParameter("myParam")
+```
+
+Case 2
+
+```
+val myUri = Uri.parse(myLink) // http://mysite.com/VALUE/stuff
+val myParamValue = myUri.pathSegments[0]
+```
+
+### 3. Xử lý di chuyển màn khi mở link
+
+
+Navigation sẽ giúp khắc phục các vấn đề này 
+
+1.
+
+<fragment
+    android:id="@+id/pagesListFragment"
+    android:name="com.ekalips.navigatortest.pages.PagesListFragment"
+    android:label="Pages"
+    tools:layout="@layout/fragment_pages_list">
+    <action
+        android:id="@+id/viewPage"
+        app:destination="@id/pageFragment"/>
+    <deepLink app:uri="myapp.com" />
+</fragment>
+
+URI ko có scheme => Schema sẽ được coi là  **http** hay **https**
+
+2. 
+
+<fragment
+    android:id="@+id/pageFragment"
+    android:name="com.ekalips.navigatortest.page.PageFragment"
+    android:label="Page"
+    tools:layout="@layout/fragment_page">
+    <argument
+        android:name="title"
+        app:type="string" />
+
+    <argument
+        android:name="detail"
+        app:type="string" />
+
+    <action
+        android:id="@+id/viewPageComments"
+        app:destination="@id/pageCommentsFragment"/>
+    <deepLink app:uri="myapp.com/{title}/{detail}" />
+</fragment>
+
+Các tham số được viết trong dấu {} và thẻ <argument>. Muốn nhận ta đơn giản chỉ cần gọi getArguments() rồi get ra thuộc tính là xong
+
+Có thể sử dụng Safe Args để tiện cho việc lấy dữ liệu
+
 
 ## II. Code
 

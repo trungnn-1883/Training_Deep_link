@@ -1,6 +1,6 @@
 package gooner.demo.training_deep_link
 
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 
@@ -13,7 +13,7 @@ class MainActivity : AppCompatActivity() {
         val data = intent?.data.let {
             Log.d("Data11", " " + it?.getQueryParameter("id"))
             Log.d("Data11", " " + it?.getQueryParameter("name"))
-            Log.d("Data11", " " + it?.getPathSegments())
+            Log.d("Data11", " " + it?.pathSegments?.get(0))
 
         }
 
