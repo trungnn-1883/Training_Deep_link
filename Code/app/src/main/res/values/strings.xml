@@ -8,4 +8,5 @@
     <string name="first_blank_fragment">Hello first blank fragment - 1</string>
     <string name="second_blank_fragment">Hello second blank fragment - 2</string>
     <string name="third_blank_fragment">Hello third blank fragment - 3</string>
+    <string name="title_activity_test_invite">TestInviteActivity</string>
 </resources>

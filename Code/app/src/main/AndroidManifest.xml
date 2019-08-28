@@ -2,28 +2,54 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           xmlns:tools="http://schemas.android.com/tools" package="gooner.demo.training_deep_link">
 
-    <application
-            android:allowBackup="true"
-            android:icon="@mipmap/ic_launcher_round"
-            android:label="@string/app_name"
-            android:roundIcon="@mipmap/ic_launcher_round"
-            android:supportsRtl="true"
-            android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+<application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher_round"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+    <activity android:name=".MainActivity">
 
-            <intent-filter android:autoVerify="true">
+        <intent-filter android:autoVerify="true">
 
-                <action android:name="android.intent.action.MAIN"/>
-                <category android:name="android.intent.category.LAUNCHER"/>
+            <action android:name="android.intent.action.MAIN"/>
+            <category android:name="android.intent.category.LAUNCHER"/>
 
-                <action android:name="android.intent.action.VIEW"/>
-                <category android:name="android.intent.category.DEFAULT"/>
-                <!--<category android:name="android.intent.category.BROWSABLE"/>-->
-                <!--<data android:scheme="https" android:host="test.deeplink.com"/>-->
-            </intent-filter>
+            <action android:name="android.intent.action.VIEW"/>
+            <category android:name="android.intent.category.DEFAULT"/>
+            <!--<category android:name="android.intent.category.BROWSABLE"/>-->
+            <!--<data android:scheme="https" android:host="test.deeplink.com"/>-->
+        </intent-filter>
 
-            <nav-graph android:value="@navigation/nav_graph"/>
-        </activity>
-    </application>
+        <nav-graph android:value="@navigation/nav_graph"/>
+    </activity>
+    <activity android:name="gooner.demo.training_deep_link.ViewDetailActivity">
+
+        <intent-filter>
+            <action android:name="android.intent.action.VIEW"/>
+            <category android:name="android.intent.category.DEFAULT"/>
+            <category android:name="android.intent.category.BROWSABLE"/>
+
+            <data android:host="gooner.demo" android:scheme="https" android:pathPrefix="/main"/>
+        </intent-filter>
+    </activity>
+
+    <activity android:name="gooner.demo.training_deep_link.TestInviteActivity"
+              android:label="@string/title_activity_test_invite"
+              android:theme="@style/AppTheme.NoActionBar">
+
+        <intent-filter>
+            <action android:name="android.intent.action.VIEW"/>
+            <category android:name="android.intent.category.DEFAULT"/>
+            <category android:name="android.intent.category.BROWSABLE"/>
+
+            <data android:host="gooner.demo" android:scheme="https" android:pathPrefix="/test"/>
+        </intent-filter>
+    </activity>
+</application>
 
 </manifest>
+
+
+

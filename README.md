@@ -115,6 +115,26 @@ Các tham số được viết trong dấu {} và thẻ <argument>. Muốn nhậ
 
 Có thể sử dụng Safe Args để tiện cho việc lấy dữ liệu
 
+### 5. DynamicLink của Firebase
+
+### a. Khái niệm
+
+ DynamicLink FireBase là các link liên kết hoạt động theo cách bạn muốn, nó sử dụng được trên nhiều nền tảng (iOS, Android, Web) và cho dù ứng dụng của bạn đã được cài đặt hay chưa. 
+
+ Có thể tạo bằng cách sử dụng Firebase console, REST API, iOS hoặc Android Builder API, hoặc thêm tham số Dynamic Link tới domain của app. 
+
+Lợi ích: 
+
+- Có thể làm tăng lượt người sử dụng app từ web
+
+- Quảng cáo đơn giản hơn, chỉ cần gửi link là được
+
+<img src="https://firebase.google.com/docs/dynamic-links/images/social-campaign.png">
+
+- Chia sẻ nội dung của app dễ hơn, trên bất kì nền tảng nào, hay đã dùng app hay chưa
+
+
+
 
 ## II. Code
 

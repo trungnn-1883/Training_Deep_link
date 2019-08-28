@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "780386011322",
+    "firebase_url": "https://test-deep-link-ad721.firebaseio.com",
+    "project_id": "test-deep-link-ad721",
+    "storage_bucket": "test-deep-link-ad721.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:780386011322:android:72ecce1cd97012f2",
+        "android_client_info": {
+          "package_name": "gooner.demo.training_deep_link"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "780386011322-96var8m2md6a2hgvkosvib1c26cf3q7j.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "gooner.demo.training_deep_link",
+            "certificate_hash": "5fe08c84f578acc628db33ba5247aab3f1223c68"
+          }
+        },
+        {
+          "client_id": "780386011322-4h6u3kgo276o2dglbecrmvtpi4g9kkbe.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBRX_kSrXndTk7RGL2dlujUx2_xIl9sfUY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "780386011322-4h6u3kgo276o2dglbecrmvtpi4g9kkbe.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
