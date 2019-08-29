@@ -44,7 +44,7 @@
             <category android:name="android.intent.category.DEFAULT"/>
             <category android:name="android.intent.category.BROWSABLE"/>
 
-            <data android:host="gooner.demo" android:scheme="https" android:pathPrefix="/test"/>
+            <data android:host="www.google1.com" android:scheme="http"/>
         </intent-filter>
     </activity>
 </application>

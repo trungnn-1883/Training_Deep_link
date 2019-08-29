@@ -21,19 +21,20 @@ class TestInviteActivity : AppCompatActivity() {
                 .setAction("Action", null).show()
         }
 
-        FirebaseDynamicLinks.getInstance()
-            .getDynamicLink(intent)
-            .addOnCompleteListener { task ->
-                if (!task.isSuccessful) {
-                    Toast.makeText(this@TestInviteActivity, "Fail", Toast.LENGTH_SHORT)
-                }
-
-                val invite = FirebaseAppInvite.getInvitation(task.result)
-                if (invite != null) {
-                    Toast.makeText(this@TestInviteActivity, "Fail" + invite.invitationId, Toast.LENGTH_SHORT)
-
-                }
-            }
+//        if (intent != null)
+//            FirebaseDynamicLinks.getInstance()
+//                .getDynamicLink(intent)
+//                .addOnCompleteListener { task ->
+//                    if (!task.isSuccessful) {
+//                        Toast.makeText(this@TestInviteActivity, "Fail", Toast.LENGTH_SHORT)
+//                    }
+//
+//                    val invite = FirebaseAppInvite.getInvitation(task.result)
+//                    if (invite != null) {
+//                        Toast.makeText(this@TestInviteActivity, "Fail" + invite.invitationId, Toast.LENGTH_SHORT)
+//
+//                    }
+//                }
     }
 
 }

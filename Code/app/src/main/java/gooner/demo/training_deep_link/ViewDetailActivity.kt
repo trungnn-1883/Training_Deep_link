@@ -61,11 +61,14 @@ class ViewDetailActivity : AppCompatActivity() {
 
         val link = FirebaseDynamicLinks.getInstance()
             .createDynamicLink()
+            // deep link
             .setLink(baseUrl)
+            // dynamic link
             .setDomainUriPrefix(domain)
             .setAndroidParameters(DynamicLink.AndroidParameters.Builder("gooner.demo.training_deep_link").build())
             .setIosParameters(DynamicLink.IosParameters.Builder("gooner.demo.iOS").build())
             .buildDynamicLink()
+
 
         return link.uri
     }
