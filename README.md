@@ -22,6 +22,34 @@ Khi click một URl, hệ thống Android sẽ làm từng bước sau, theo tu�
 
 - Cho phép người dùng chọn ứng dụng từ dialog 
 
+### 3. App link vs deep link
+
+<img src="https://developer.android.com/training/app-links/images/app-disambiguation_2x.png" width="280">
+
+App link sẽ dẫn người dùng thẳng vào app mà không hiện dialog như trên
+
+### Cách làm
+
+- Set android:autoVerify="true"
+
++ Sẽ xác thực toàn bộ host liên kết với URL
+
+Check toàn bộ intent filter bao gồm
+
+```
+Action: android.intent.action.VIEW
+
+Categories: android.intent.category.BROWSABLE và android.intent.category.DEFAULT
+
+Data scheme: http or https
+
+```
+
+Giả sử tìm được thì sẽ check file Digital Asset Links
+
+Digital Asset Links phải có ở trên website để chỉ thị app liên kết với website và xác thực URL intent
+
+
 ### 3. Lấy Parameter từ Deep link
 
 
