@@ -13,7 +13,7 @@
 
         <argument android:name="title" app:argType="string" android:defaultValue="1"/>
 
-        <deepLink app:uri="deep1link.com/{title}" android:autoVerify="true"/>
+        <deepLink app:uri="deeplink.com/{title}" android:autoVerify="true"/>
 
     </fragment>
 

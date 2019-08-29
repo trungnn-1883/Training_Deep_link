@@ -29,7 +29,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/view_detail_des_txt"
             android:layout_marginTop="120dp"
-            app:layout_constraintTop_toBottomOf="@+id/textView" android:layout_marginStart="80dp"
+            app:layout_constraintTop_toBottomOf="@+id/textView" android:layout_marginStart="32dp"
             app:layout_constraintStart_toStartOf="parent"/>
 
     <Button

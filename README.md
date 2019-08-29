@@ -10,7 +10,7 @@ Tuy nhiên nếu ứng dụng khác trong thiết bị có thể xử lý cùng 
 
 <img src="https://miro.medium.com/max/1400/1*1Tw0Yy2tHoq3mHleM789rQ.jpeg">
 
-Có một khái niệm khác là App link. Nó cũng chính là deep link mà đã được xác thực là thuộc về app của mình. Khi nhấn vào URL, nó sẽ mở luôn app.
+Có một khái niệm khác là App link. Nó cũng chính là deep link mà đã được xác thực là thuộc về app của mình. Khi nhấn vào URL, nó sẽ mở luôn app, không hiển thị dialog chọn ứng dụng
 
 ### 2. Kịch bản từ Deep link tới nội dung app
 
@@ -46,7 +46,7 @@ Code để lấy, trong onCreate hoặc onStart
 
 ### 4. Deeplink với Navigation Component
 
-Một số vấn đề khi sử dụng deeplink như sau:
+### a. Một số vấn đề khi sử dụng deeplink như sau:
 
 ### 1. Phải tạo nhiều link ở file manifest, bao gồm cả http và https
 
@@ -115,6 +115,16 @@ Các tham số được viết trong dấu {} và thẻ <argument>. Muốn nhậ
 
 Có thể sử dụng Safe Args để tiện cho việc lấy dữ liệu
 
+3. Về cơ bản nó sẽ lấy theo file navigation graph ta tạo ra (tùy theo loại deep link), từ đó đơn giản hóa việc tạo di chuyển
+
+### b. Phân loại
+
+Có 2 loại deep link:
+
+- Explicit: sử dụng PendingIntent, thường dùng trong notification, app widget
+
+- Implicit: sử dụng URI, khi nhấn vào thì mở apps
+
 ### 5. DynamicLink của Firebase
 
 ### a. Khái niệm
@@ -133,6 +143,46 @@ Lợi ích:
 
 - Chia sẻ nội dung của app dễ hơn, trên bất kì nền tảng nào, hay đã dùng app hay chưa
 
+Cách hoạt động
+
+<img src="https://images.viblo.asia/1cce0481-1753-44b6-991e-03c2ef813bf9.png">
+
+### b. Cách khởi tạo
+
+- Sử dụng Firebase console: đơn giản, với mục đích để test hoặc cho đội marketing dễ quảng cáo app
+
+<img src="img/d1.png">
+
+
+### c. So sánh
+
+- Dynamic Link vs Deep Link
+
+Dynamic link bao gồm cả deeplink + một số thông tin khác như package name, version, link khi không cài được app (afl), ...
+
+So sánh
+
+<img src="img/d2.png">
+
+- Long vs short dynamic link
+
++ Long: chứa đầy đủ thông tin như package android, ios, parameter
+
++ Short: link rút gọn, che giấu đi thông tin
+
+
+```
+Long Dynamic Link
+
+https://gooner.page.link/?link=https://gooner.demo/main/?title%3DHappy-to-meet-you-kaka11111&apn=gooner.demo.training_deep_link
+
+Short Dynamic Link
+
+https://gooner.page.link/main 
+
+```
+
+Trong code gen ra bằng **buildDynamicLink()** và **buildShortDynamicLink()**
 
 
 

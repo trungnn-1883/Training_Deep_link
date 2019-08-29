@@ -9,6 +9,7 @@ import android.widget.Button
 import android.widget.TextView
 import com.google.firebase.dynamiclinks.DynamicLink
 import com.google.firebase.dynamiclinks.FirebaseDynamicLinks
+import com.google.firebase.dynamiclinks.ShortDynamicLink
 
 class ViewDetailActivity : AppCompatActivity() {
 
@@ -47,7 +48,7 @@ class ViewDetailActivity : AppCompatActivity() {
         }
 
         mGenBtn?.setOnClickListener {
-            mLinkTxt?.text = generateContentLink().toString()
+            mLinkTxt?.text = generateContentLinkA()
         }
 
         mShareBtn?.setOnClickListener {
@@ -55,7 +56,35 @@ class ViewDetailActivity : AppCompatActivity() {
         }
     }
 
-    fun generateContentLink(): Uri {
+    fun generateContentLink(): Uri? {
+        val baseUrl = Uri.parse("https://gooner.demo/test/?title=Happy-to-meet-you")
+        val domain = "https://gooner.page.link"
+        var shortLink: Uri? = null
+        var previewLink: Uri? = null
+
+        val link = FirebaseDynamicLinks.getInstance()
+            .createDynamicLink()
+            // deep link
+            .setLink(baseUrl)
+            // dynamic link
+            .setDomainUriPrefix(domain)
+            .setAndroidParameters(
+                DynamicLink.AndroidParameters.Builder("gooner.demo.training_deep_link")
+                    .setFallbackUrl(Uri.parse("https://gooner.demo/test/?title=Can't-install-on-device")).build()
+            )
+            .setIosParameters(DynamicLink.IosParameters.Builder("gooner.demo.iOS").build())
+            .buildShortDynamicLink(ShortDynamicLink.Suffix.SHORT)
+            .addOnCompleteListener { result ->
+                shortLink = result.getResult()?.shortLink
+                previewLink = result.getResult()?.previewLink
+                mLinkTxt?.text = shortLink.toString() + "\n" + previewLink.toString()
+            }
+
+        return shortLink
+    }
+
+
+    fun generateContentLinkA(): String {
         val baseUrl = Uri.parse("https://gooner.demo/test/?title=Happy-to-meet-you")
         val domain = "https://gooner.page.link"
 
@@ -65,12 +94,15 @@ class ViewDetailActivity : AppCompatActivity() {
             .setLink(baseUrl)
             // dynamic link
             .setDomainUriPrefix(domain)
-            .setAndroidParameters(DynamicLink.AndroidParameters.Builder("gooner.demo.training_deep_link").build())
+            .setAndroidParameters(
+                DynamicLink.AndroidParameters.Builder("gooner.demo.training_deep_link")
+                    .setFallbackUrl(Uri.parse("https://gooner.demo/test/?title=Can't-install-on-device")).build()
+            )
             .setIosParameters(DynamicLink.IosParameters.Builder("gooner.demo.iOS").build())
             .buildDynamicLink()
 
+        return link.uri.toString()
 
-        return link.uri
     }
 
     private fun onShareClicked() {
