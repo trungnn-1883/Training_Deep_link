@@ -53,7 +53,7 @@ Digital Asset Links phải có ở trên website để chỉ thị app liên k�
 ### 3. Tạo deeplink và Lấy parameter
 
 
-Câu lệnh cmd
+Sử dụng câu lệnh cmd
 
 ```
 adb shell 'am start 
@@ -63,7 +63,7 @@ gooner.demo.training_deep_link'
 
 ``` 
 
-Tạo file html
+Sử dụng file html
 
 ```
 <a href="test://gooner.demo/main?/id=12345&name=Trung">Open APP</a>
