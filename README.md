@@ -50,10 +50,10 @@ Giả sử tìm được thì sẽ check file Digital Asset Links
 Digital Asset Links phải có ở trên website để chỉ thị app liên kết với website và xác thực URL intent
 
 
-### 3. Lấy Parameter từ Deep link
+### 3. Tạo deeplink và Lấy parameter
 
 
-Câu lệnh
+Câu lệnh cmd
 
 ```
 adb shell 'am start 
@@ -63,6 +63,18 @@ gooner.demo.training_deep_link'
 
 ``` 
 
+Tạo file html
+
+```
+<a href="test://gooner.demo/main?/id=12345&name=Trung">Open APP</a>
+
+```
+
+<img src="img/d3.png">
+
+<img src="img/d4.png">
+
+
 Code để lấy, trong onCreate hoặc onStart
 
 ```
@@ -71,6 +83,25 @@ Code để lấy, trong onCreate hoặc onStart
             Log.d("Data11", " " + it?.getQueryParameter("name"))
         }
 ```
+
+### 4. Tương tác với deeplink
+
+a. Deeplink không ở trong nội dung trang web
+
+- Nếu link không ở trong nội dung của 1 trang web:
+
++ Web browser sẽ được mở lên
+
++ Nếu link đã được đăng kí tên miền thì có thể dẫn tới app, còn không sẽ báo lỗi
+
+ <img src="img/d5.jpg" withd=280>
+
+b. Trường hợp link được đính trong nội dung trang web
+
+- Có app: mở app
+
+- Không có: app không được mở lên, không có gì xảy ra khi nhấn vào deeplink
+
 
 ### 4. Deeplink với Navigation Component
 
@@ -175,14 +206,46 @@ Cách hoạt động
 
 <img src="https://images.viblo.asia/1cce0481-1753-44b6-991e-03c2ef813bf9.png">
 
-### b. Cách khởi tạo
+### b. Hoạt động trong các trường hợp
+
+- Firebase deeplink cần có internet mới có thể hoạt động, ko sẽ báo lỗi
+
+- Nếu có app thì sẽ mở app
+
+- Ko có app thì ta sẽ có thể chỉ định dẫn tới google play store hoặc link mà ta muốn
+
+### c. Cách khởi tạo
 
 - Sử dụng Firebase console: đơn giản, với mục đích để test hoặc cho đội marketing dễ quảng cáo app
 
 <img src="img/d1.png">
 
+- Trong code 
 
-### c. So sánh
+```
+    fun generateContentLink(): String {
+        val baseUrl = Uri.parse("https://gooner.demo/test/?title=Happy-to-meet-you")
+        val domain = "https://gooner.page.link"
+
+        val link = FirebaseDynamicLinks.getInstance()
+            .createDynamicLink()
+            // deep link
+            .setLink(baseUrl)
+            // dynamic link
+            .setDomainUriPrefix(domain)
+            .setAndroidParameters(
+                DynamicLink.AndroidParameters.Builder("gooner.demo.training_deep_link")
+                    .setFallbackUrl(Uri.parse("https://gooner.demo/test/?title=Can't-install-on-device")).build()
+            )
+            .setIosParameters(DynamicLink.IosParameters.Builder("gooner.demo.iOS").build())
+            .buildDynamicLink()
+
+        return link.uri.toString()
+
+    }
+```
+
+### d. So sánh
 
 - Dynamic Link vs Deep Link
 
@@ -211,6 +274,8 @@ https://gooner.page.link/main
 ```
 
 Trong code gen ra bằng **buildDynamicLink()** và **buildShortDynamicLink()**
+
+
 
 
 
