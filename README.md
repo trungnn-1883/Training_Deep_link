@@ -16,7 +16,7 @@ Có một khái niệm khác là App link. Nó cũng chính là deep link mà đ
 
 Khi click một URl, hệ thống Android sẽ làm từng bước sau, theo tuần tự, cho đến khi thành công
 
-- Mở ứng dụng ưa thích của người dùng có thể xử lý URL, nếu được chỉ định
+- Mở ứng dụng mặc định theo setting của người dùng có thể xử lý URL, nếu được chỉ định
 
 - Mở ứng dụng duy nhất có thể xử lý URL
 
