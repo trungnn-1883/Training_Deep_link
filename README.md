@@ -50,7 +50,7 @@ Giả sử tìm được thì sẽ check file Digital Asset Links
 Digital Asset Links phải có ở trên website để chỉ thị app liên kết với website và xác thực URL intent
 
 
-### 3. Tạo deeplink và Lấy parameter
+### 4. Tạo deeplink và Lấy parameter
 
 
 Sử dụng câu lệnh cmd
@@ -84,7 +84,7 @@ Code để lấy, trong onCreate hoặc onStart
         }
 ```
 
-### 4. Tương tác với deeplink
+### 5. Tương tác với deeplink
 
 a. Deeplink không ở trong nội dung trang web
 
@@ -103,7 +103,7 @@ b. Trường hợp link được đính trong nội dung trang web
 - Không có: app không được mở lên, không có gì xảy ra khi nhấn vào deeplink
 
 
-### 4. Deeplink với Navigation Component
+### 6. Deeplink với Navigation Component
 
 ### a. Một số vấn đề khi sử dụng deeplink như sau:
 
@@ -184,7 +184,7 @@ Có 2 loại deep link:
 
 - Implicit: sử dụng URI, khi nhấn vào thì mở apps
 
-### 5. DynamicLink của Firebase
+### 7. DynamicLink của Firebase
 
 ### a. Khái niệm
 
@@ -274,9 +274,6 @@ https://gooner.page.link/main
 ```
 
 Trong code gen ra bằng **buildDynamicLink()** và **buildShortDynamicLink()**
-
-
-
 
 
 ## II. Code
