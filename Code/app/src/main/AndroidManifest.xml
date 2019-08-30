@@ -32,7 +32,7 @@
             <category android:name="android.intent.category.DEFAULT"/>
             <category android:name="android.intent.category.BROWSABLE"/>
 
-            <data android:host="gooner.demo" android:scheme="https" android:pathPrefix="/main"/>
+            <data android:host="gooner.demo" android:scheme="test" android:pathPrefix="/main"/>
         </intent-filter>
     </activity>
 
