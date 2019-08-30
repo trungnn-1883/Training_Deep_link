@@ -88,17 +88,14 @@ Code để lấy, trong onCreate hoặc onStart
 
 a. Deeplink không ở trong nội dung trang web
 
-- Nếu link không ở trong nội dung của 1 trang web:
+- Nếu link không ở trong nội dung của 1 trang web: sẽ xuất hiện dialog chọn app
 
-+ Web browser sẽ được mở lên
+ Sau đó nhấn app của mình sẽ mở app lên
 
-+ Nếu link đã được đăng kí tên miền thì có thể dẫn tới app, còn không sẽ báo lỗi
-
- <img src="img/d5.jpg" width=280>
 
 b. Trường hợp link được đính trong nội dung trang web
 
-- Có app: mở app
+- Có app: mở app 
 
 - Không có: app không được mở lên, không có gì xảy ra khi nhấn vào deeplink
 
