@@ -94,7 +94,7 @@ a. Deeplink không ở trong nội dung trang web
 
 + Nếu link đã được đăng kí tên miền thì có thể dẫn tới app, còn không sẽ báo lỗi
 
- <img src="img/d5.jpg" withd=280>
+ <img src="img/d5.jpg" width=280>
 
 b. Trường hợp link được đính trong nội dung trang web
 
